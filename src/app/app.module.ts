@@ -13,7 +13,7 @@ import { ContactDetailComponent } from './contacts/contact-detail/contact-detail
     HeaderComponent,
     ContactsComponent,
     ContactListComponent,
-    ContactDetailComponent
+    ContactDetailComponent,
   ],
   imports: [
     BrowserModule
