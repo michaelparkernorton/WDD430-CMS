@@ -11,13 +11,14 @@
           <div class="col-xs-12">
             <cms-message-item
             *ngFor="let messageEl of messages"
-            [message]="messageEl"></cms-message-item>
+            [message]="messageEl">
+          </cms-message-item>
           </div>
         </div>
       </div>
       <div class="panel-footer">
         <cms-message-edit
-        (addMessageEvent)="(onAddMessage($event))"></cms-message-edit>
+        (addMessageEvent)="onAddMessage($event)"></cms-message-edit>
       </div>
     </div>
   </div>
