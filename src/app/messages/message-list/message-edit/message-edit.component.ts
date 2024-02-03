@@ -22,7 +22,8 @@ export class MessageEditComponent {
 
   ngOnInit(): void {}
 
-  onSendMessage() {
+  onSendMessage(event: Event) {
+    event.preventDefault();
     const subject = this.subjectRef.nativeElement.value;
     const msgText = this.msgTextRef.nativeElement.value;
     const newMessage = new Message('1', subject, msgText, this.currentSender);
