@@ -4,8 +4,11 @@
 	</div>
 	<div class="col-md-4">
 		<cms-contact-detail
-		*ngIf="selectedContact; else infoText"
+		*ngIf="selectedContact"
 		[contact]="selectedContact"></cms-contact-detail>
-		<ng-template #infoText><p>Please select a contact!</p></ng-template>
+		<!-- <cms-contact-detail
+		*ngIf="selectedContact; else infoText"
+		[contact]="selectedContact"></cms-contact-detail> -->
+		<!-- <ng-template #infoText><p>Please select a contact!</p></ng-template> -->
 	</div>
 </div>
