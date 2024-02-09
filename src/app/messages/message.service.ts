@@ -18,12 +18,7 @@ export class MessageService {
   }
 
   getMessage(id: string) {
-    this.messages.forEach((message) => {
-      if (message.id == id) {
-        return message;
-      }
-    });
-    return null;
+    return this.messages.find((message) => message.id === id);
   }
 
   addMessage(message: Message) {
