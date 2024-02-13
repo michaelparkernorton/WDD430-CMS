@@ -20,7 +20,6 @@ export class DocumentListComponent implements OnInit {
   }
 
   onSelected(document: Document) {
-  
     this.router.navigate([document.id], {relativeTo: this.route})
   }
 }
