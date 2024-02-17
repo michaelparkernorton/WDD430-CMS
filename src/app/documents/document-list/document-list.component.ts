@@ -11,15 +11,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class DocumentListComponent implements OnInit {
   documents: Document[] = [];
 
-  constructor(private documentService: DocumentService,
+  constructor(
+    private documentService: DocumentService,
     private router: Router,
-    private route: ActivatedRoute){}
-
-  ngOnInit() {
+    private route: ActivatedRoute
+  ) {
     this.documents = this.documentService.getDocuments();
   }
 
-  onSelected(document: Document) {
-    this.router.navigate([document.id], {relativeTo: this.route})
+  ngOnInit() {
+    this.documentService.documentChangedEvent
+      .subscribe((documents: Document[]) => {this.documents = documents})
   }
 }

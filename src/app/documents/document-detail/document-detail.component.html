@@ -1,11 +1,11 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <div class="row pad-all">
-      <h4 class="title margin-left-right">{{document.name}}</h4>
+      <h4 class="title margin-left-right">{{ document.name }}</h4>
       <div class="row pull-right margin-left-right">
-        <a class="btn btn-primary">View</a>
-        <a class="btn btn-info" >Edit</a>
-        <a class="btn btn-danger">Delete</a>
+        <a class="btn btn-primary" (click)="onView()">View</a>
+        <a routerLink="edit" class="btn btn-info">Edit</a>
+        <a routerLink="" class="btn btn-danger" (click)="onDelete()">Delete</a>
       </div>
     </div>
   </div>
@@ -13,14 +13,13 @@
     <div class="pad-left-right">
       <div class="row">
         <label>Description:</label>
-        <p class="label-value">{{document.description}}</p>
+        <p class="label-value">{{ document.description }}</p>
       </div>
-      <br>
+      <br />
       <div class="row">
         <label>URL:</label>
-        <p class="label-value">{{document.url}}</p>
+        <p class="label-value">{{ document.url }}</p>
       </div>
     </div>
   </div>
 </div>
-
