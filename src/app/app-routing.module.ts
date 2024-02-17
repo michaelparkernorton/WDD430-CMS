@@ -4,18 +4,25 @@ import { Routes, RouterModule } from '@angular/router';
 import { DocumentsComponent } from './documents/documents.component';
 import { MessageListComponent } from './messages/message-list/message-list.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
+import { DocumentDetailComponent } from './documents/document-detail/document-detail.component';
+import { ContactDetailComponent } from './contacts/contact-detail/contact-detail.component';
+import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/documents' },
-  // { path: 'documents', component: DocumentsComponent, children: [
-  //   { path: '', component: RecipeStartComponent },
-  //   { path: 'new', component: RecipeEditComponent },
-  //   { path: ':id', component: RecipeDetailComponent },
-  //   { path: ':id/edit', component: RecipeEditComponent },
-  // ] },
-  { path: 'documents', component: DocumentsComponent },
+  { path: '', redirectTo: '/documents', pathMatch: 'full' },
+  { path: 'documents', component: DocumentsComponent, children: [
+    // { path: '', component: RecipeStartComponent },
+    { path: 'new', component: DocumentEditComponent },
+    { path: ':id', component: DocumentDetailComponent },
+    { path: ':id/edit', component: DocumentEditComponent },
+  ] },
   { path: 'messages', component: MessageListComponent },
-  { path: 'contacts', component: ContactsComponent },
+  { path: 'contacts', component: ContactsComponent, children: [
+    { path: 'new', component: ContactEditComponent },
+    { path: ':id', component: ContactDetailComponent },
+    { path: ':id/edit', component: ContactEditComponent },
+  ] },
 ];
 
 @NgModule({
