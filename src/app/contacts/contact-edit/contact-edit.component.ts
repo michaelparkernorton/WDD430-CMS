@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './contact-edit.component.css'
 })
 export class ContactEditComponent {
+groupContacts: any;
+
+  onCancel() {
+    throw new Error('Method not implemented.');
+  }
 
 }
