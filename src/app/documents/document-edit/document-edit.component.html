@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-body">
 
-    <form id="document-edit">
+    <form id="document-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
       <div class="row">
         <div class="col-sm-12 form-group">
           <label for="name">Document Title:</label>
@@ -9,6 +9,9 @@
             type="text"
             id="name"
             class="form-control"
+            name="name"
+            ngModel="document.name"
+            required
             size="120"
             max="120">
         </div>
@@ -21,6 +24,8 @@
             type="text"
             id="description"
             class="form-control"
+            name="description"
+            ngModel="document?.description"
             size="120"
             max="255">
         </div>
@@ -33,6 +38,9 @@
             type="text"
             id="url"
             class="form-control"
+            name="url"
+            ngModel="document.url"
+            required
             size="150"
             max="255">
         </div>
