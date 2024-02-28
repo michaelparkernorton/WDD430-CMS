@@ -10,6 +10,7 @@ export class DocumentService {
   documentListChangedEvent = new Subject<Document[]>()
   documentSelectedEvent = new EventEmitter<Document>()
   documentChangedEvent = new EventEmitter<Document[]>()
+  startedEditing = new Subject<number>();
   
   private documents: Document[] = []
   private maxDocumentId: number;
