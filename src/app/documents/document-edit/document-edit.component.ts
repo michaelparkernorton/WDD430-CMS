@@ -23,14 +23,19 @@ export class DocumentEditComponent implements OnInit {
   ) {}
 
   onSubmit(form: NgForm) {
-    const value = form.value
-    this.document = new Document(value.id, value.name, value.desciption, value.url)
+    const value = form.value;
+    this.document = new Document(
+      value.id,
+      value.name,
+      value.description,
+      value.url
+    );
     if (this.editMode) {
-      this.documentService.updateDocument(this.originalDocument, this.document)
+      this.documentService.updateDocument(this.originalDocument, this.document);
     } else {
       this.documentService.addDocument(this.document);
     }
-    this.router.navigate(['../'], {relativeTo: this.route});
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 
   ngOnInit(): void {
@@ -50,7 +55,6 @@ export class DocumentEditComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigate(['../'], {relativeTo: this.route});
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
-
 }
