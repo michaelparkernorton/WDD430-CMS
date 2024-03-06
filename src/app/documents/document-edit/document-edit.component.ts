@@ -22,19 +22,6 @@ export class DocumentEditComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-//   onSubmit(form: NgForm) {
-//     value = form.value // get values from form’s fields
-//     newDocument = new Document()
-//     Assign the values in the form fields to the
-//     corresponding properties in the newDocument
-//     if (editMode = true) then
-//      documentService.updateDocument(originalDocument, newDocument)
-//     else
-//      documentService.addDocument(newDocument)
-//     endIf
-//     route back to the '/documents' URL 
-//  }
-
   onSubmit(form: NgForm) {
     const value = form.value
     this.document = new Document(value.id, value.name, value.desciption, value.url)
