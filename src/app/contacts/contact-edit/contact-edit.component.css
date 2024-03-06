@@ -1,4 +1,3 @@
-
 .required.ng-invalid {
   border: 1px solid red;
 }
@@ -7,8 +6,8 @@
   border: 1px solid red;
 }
 
-.pad-left-right{
-  padding-left:.1rem;
+.pad-left-right {
+  padding-left: 0.1rem;
 }
 
 .deleteButton {
@@ -22,6 +21,7 @@
 }
 
 .groupDiv {
+  margin-left: 1rem;
   min-height: 6rem;
   border: solid thin lightgrey;
 }
@@ -30,4 +30,8 @@
   font-size: 2rem;
   color: darkgrey;
   margin-left: 3rem;
+}
+
+.removemargin {
+  margin-left: 0;
 }
