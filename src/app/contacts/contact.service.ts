@@ -11,8 +11,8 @@ export class ContactService {
   contactSelectedEvent = new EventEmitter<Contact>();
   contactChangedEvent = new EventEmitter<Contact[]>();
 
-  private contacts: Contact[] = []
-  private maxContactId: number
+  public contacts: Contact[] = []
+  public maxContactId: number
   private contactsListClone: Contact[]
   private json: string
 
@@ -38,6 +38,10 @@ export class ContactService {
           console.log(e)
         }}
       )
+  }
+
+  getContacts2() {
+    return this.contacts;
   }
 
   compareFn(a, b) {
