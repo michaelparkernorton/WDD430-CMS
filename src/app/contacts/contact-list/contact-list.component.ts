@@ -11,13 +11,15 @@ import { Subscription } from 'rxjs';
 })
 export class ContactListComponent implements OnInit {
   contacts: Contact[];
-  private subcription: Subscription
+  private subcription: Subscription;
+  term: string;
+  filteredName: "";
 
   constructor(
     private contactService: ContactService,
     private router: Router,
     private route: ActivatedRoute
-    ) {}
+  ) {}
 
   ngOnInit() {
     this.contacts = this.contactService.getContacts();
@@ -25,14 +27,18 @@ export class ContactListComponent implements OnInit {
     //   .subscribe((contacts: Contact[]) => {
     //     this.contacts = contacts
     //   })
-    this.subcription = this.contactService.contactListChangedEvent
-      .subscribe((contactList: Contact[]) => {
-        this.contacts = contactList
-      })
-    }
+    this.subcription = this.contactService.contactListChangedEvent.subscribe(
+      (contactList: Contact[]) => {
+        this.contacts = contactList;
+      }
+    );
+  }
 
   ngOnDestroy(): void {
     this.subcription.unsubscribe();
   }
 
+  search(value: string) {
+    this.term = value;
+  }
 }
