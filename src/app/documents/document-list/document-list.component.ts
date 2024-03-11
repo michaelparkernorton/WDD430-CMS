@@ -18,7 +18,7 @@ export class DocumentListComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute
   ) {
-    this.documents = this.documentService.getDocuments();
+    this.documentService.getDocuments();
   }
 
   ngOnInit() {

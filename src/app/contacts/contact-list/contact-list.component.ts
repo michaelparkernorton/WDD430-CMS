@@ -19,14 +19,12 @@ export class ContactListComponent implements OnInit {
     private contactService: ContactService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) {
+    this.contactService.getContacts()
+  }
 
   ngOnInit() {
-    this.contacts = this.contactService.getContacts();
-    // this.contactService.contactChangedEvent
-    //   .subscribe((contacts: Contact[]) => {
-    //     this.contacts = contacts
-    //   })
+    // this.contacts = this.contactService.getContacts();
     this.subcription = this.contactService.contactListChangedEvent.subscribe(
       (contactList: Contact[]) => {
         this.contacts = contactList;
