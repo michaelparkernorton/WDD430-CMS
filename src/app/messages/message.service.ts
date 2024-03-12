@@ -1,7 +1,9 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Message } from './message.model';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
+import { Contact } from '../contacts/contact.model';
+import { ContactService } from '../contacts/contact.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,11 +13,12 @@ export class MessageService {
   messageChangedEvent = new EventEmitter<Message[]>();
   
   private messages: Message[] = [];
-  private maxMessageId: number
+  private maxMessageId: number;
   private messagesListClone: Message[]
   private json: string
-
-  constructor(private http: HttpClient) {
+  contacts: Contact[];
+  private subcriptionContact: Subscription;
+  constructor(private http: HttpClient, private contactService: ContactService) {
     this.maxMessageId = this.getMaxId()
   }
 
@@ -68,8 +71,24 @@ export class MessageService {
     return maxId
   }
 
-  addMessage(message: Message) {
-    this.messages.push(message);
-    this.messageChangedEvent.emit(this.messages.slice())
+  storeMessages() {
+    this.json = JSON.stringify(this.messages)
+    this.http.put('https://michaelnorton-cms-default-rtdb.firebaseio.com/messages.json', this.json)
+      .subscribe(()=> {
+        this.messagesListClone = this.messages.slice()
+        this.messageListChangedEvent.next(this.messagesListClone)
+      })
   }
+
+  addMessage(newMessage: Message) {
+    if (!newMessage) {
+      return
+    } 
+    this.maxMessageId++
+    newMessage.id = this.maxMessageId.toString()
+    newMessage.sender = "19"
+    this.messages.push(newMessage)
+    this.storeMessages()
+  }
+  
 }
