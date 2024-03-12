@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -15,11 +14,7 @@ export class ContactListComponent implements OnInit {
   term: string;
   filteredName: "";
 
-  constructor(
-    private contactService: ContactService,
-    private router: Router,
-    private route: ActivatedRoute
-  ) {
+  constructor(private contactService: ContactService) {
     this.contactService.getContacts()
   }
 
