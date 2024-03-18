@@ -4,7 +4,6 @@ var path = require("path");
 var http = require("http");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-const debug = require("debug")("node-angular");
 
 // import the routing file to handle the default (index) route
 var index = require("./server/routes/app");
