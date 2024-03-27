@@ -1,3 +1,6 @@
+//user password: HMXKTj7242kcOqC4
+//connection string: mongodb+srv://michaelparkernortonva:HMXKTj7242kcOqC4@cluster0.hciem93.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -45,7 +48,13 @@ import { HttpClientModule } from '@angular/common/http';
     ContactEditComponent,
     ContactsFilterPipe,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, DragDropModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    DragDropModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
